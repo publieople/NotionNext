@@ -8,11 +8,11 @@
 }
 
 /* 站点封面半透明模糊效果 */
-.notion-page-cover-wrapper {
+#theme-hexo .header-cover {
     position: relative;
 }
 
-.notion-page-cover-wrapper::before {
+#theme-hexo .header-cover::after {
     content: '';
     position: absolute;
     top: 0;
@@ -27,7 +27,7 @@
 }
 
 /* 确保封面内容在模糊层上方 */
-.notion-page-cover-wrapper > *:not(:first-child) {
+#theme-hexo .header-cover > *:not(:first-child) {
     position: relative;
     z-index: 2;
 }
