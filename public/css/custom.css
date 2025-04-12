@@ -8,11 +8,14 @@
 }
 
 /* 站点封面半透明模糊效果 */
-#theme-hexo .header-cover {
-    position: relative;
+#theme-hexo #header-cover {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+    opacity: 0.8;
 }
 
-#theme-hexo .header-cover::after {
+/* 添加一个半透明的覆盖层 */
+#theme-hexo #header-cover::before {
     content: '';
     position: absolute;
     top: 0;
@@ -20,14 +23,12 @@
     right: 0;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
     z-index: 1;
     pointer-events: none;
 }
 
 /* 确保封面内容在模糊层上方 */
-#theme-hexo .header-cover > *:not(:first-child) {
+#theme-hexo #header-cover > *:not(:first-child) {
     position: relative;
     z-index: 2;
 }
