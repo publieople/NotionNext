@@ -6,3 +6,28 @@
 .fa-info:before {
     content: "\f05a";
 }
+
+/* 站点封面半透明模糊效果 */
+#theme-fukasawa .notion-page-cover-wrapper {
+    position: relative;
+}
+
+#theme-fukasawa .notion-page-cover-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 确保封面内容在模糊层上方 */
+#theme-fukasawa .notion-page-cover-wrapper > *:not(:first-child) {
+    position: relative;
+    z-index: 2;
+}
