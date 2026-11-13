@@ -1,7 +1,7 @@
 // 注: process.env.XX是Vercel的环境变量，配置方式见：https://docs.tangly1024.com/article/how-to-config-notion-next#c4768010ae7d44609b744e79e2f9959a
 
 const BLOG = {
-  API_BASE_URL: process.env.API_BASE_URL || 'https://www.notion.so/api/v3', // API默认请求地址,可以配置成自己的地址例如：https://[xxxxx].notion.site/api/v3
+  API_BASE_URL: process.env.API_BASE_URL || 'https://app.notion.com/api/v3', // API默认请求地址,可以配置成自己的地址例如：https://[xxxxx].notion.site/api/v3
   // Important page_id！！！Duplicate Template from  https://tanghh.notion.site/02ab3b8678004aa69e9e415905ef32a5
   NOTION_PAGE_ID:
     process.env.NOTION_PAGE_ID ||
@@ -11,13 +11,13 @@ const BLOG = {
   SINCE: process.env.NEXT_PUBLIC_SINCE || 2024, // e.g if leave this empty, current year will be used.
 
   PSEUDO_STATIC: process.env.NEXT_PUBLIC_PSEUDO_STATIC || false, // 伪静态路径，开启后所有文章URL都以 .html 结尾。
-  NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 5, // 更新缓存间隔 单位(秒)；即每个页面有5秒的纯静态期、此期间无论多少次访问都不会抓取notion数据；调大该值有助于节省Vercel资源、同时提升访问速率，但也会使文章更新有延迟。
+  NEXT_REVALIDATE_SECOND: process.env.NEXT_PUBLIC_REVALIDATE_SECOND || 60, // 更新缓存间隔 单位(秒)；即每个页面有5秒的纯静态期、此期间无论多少次访问都不会抓取notion数据；调大该值有助于节省Vercel资源、同时提升访问速率，但也会使文章更新有延迟。
   APPEARANCE: process.env.NEXT_PUBLIC_APPEARANCE || 'dark', // ['light', 'dark', 'auto'], // light 日间模式 ， dark夜间模式， auto根据时间和主题自动夜间模式
   APPEARANCE_DARK_TIME: process.env.NEXT_PUBLIC_APPEARANCE_DARK_TIME || [18, 6], // 夜间模式起至时间，false时关闭根据时间自动切换夜间模式
 
   AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'Publieople', // 您的昵称 例如 tangly1024
   BIO: process.env.NEXT_PUBLIC_BIO || '为人民服务', // 作者简介
-  LINK: process.env.NEXT_PUBLIC_LINK || 'https://notion.for-people.asia', // 网站地址
+  LINK: process.env.NEXT_PUBLIC_LINK || 'https://blog.for-people.cn', // 网站地址
   KEYWORDS: process.env.NEXT_PUBLIC_KEYWORD || 'Notion, 博客, 个人网站, 人民公仆, publieople', // 网站关键词 英文逗号隔开
   BLOG_FAVICON: process.env.NEXT_PUBLIC_FAVICON || '/favicon.ico', // blog favicon 配置, 默认使用 /public/favicon.ico，支持在线图片，如 https://img.imesong.com/favicon.png
   BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXX
