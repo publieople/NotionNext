@@ -12,7 +12,9 @@ Notion 配备了完整的键盘和Markdown快捷键，因此您无需触摸鼠�
 
 本文我将介绍Notion最实用的快捷键，并且由浅入深地带您体验notion的强大之处~
 
-> **👉** **提示：**你将在以下的文章中看到大量的 `cmd/ctrl` ，他们分别的是Mac系统上的 `command` 键以及Windows和Linux上的`control` 键.
+::: tip 提示
+**提示：**你将在以下的文章中看到大量的 `cmd/ctrl` ，他们分别的是Mac系统上的 `command` 键以及Windows和Linux上的`control` 键.
+:::
 
 
 ## 一、常用的6个快捷键 📝
@@ -32,13 +34,17 @@ Notion 配备了完整的键盘和Markdown快捷键，因此您无需触摸鼠�
 
 ### 🤣 Emoji符号
 
-> **🎒** **如何**在页面内快速地插入emoji表情，输入一个`:`+`特定单词`,例如`:apple` 就是🍎或者 `:clapping` 可以输出 👏
+::: tip 提示
+**如何**在页面内快速地插入emoji表情，输入一个`:`+`特定单词`,例如`:apple` 就是🍎或者 `:clapping` 可以输出 👏
 你也可以输入系统自带的Emoji表情，在Mac上按 `ctrl` + `cmd` + `space` 输入；在Windows上按 `windows key` + `.` 或 `windows key` + `;` 输入
+:::
 
 
 ## 二、**Markdown 快捷键**
 
-> **❓** **Markdown**是一种[轻量级标记语言](https://zh.wikipedia.org/wiki/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80),可用于在纯文本文档中添加格式化元素。
+::: info 问题
+**Markdown**是一种[轻量级标记语言](https://zh.wikipedia.org/wiki/%E8%BD%BB%E9%87%8F%E7%BA%A7%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80),可用于在纯文本文档中添加格式化元素。
+:::
 
 由于Markdown的轻量化、易读易写特性，并且对于图片，图表、数学式都有支持，如今已成为世界上最受欢迎的标记语言之一。
 
@@ -106,7 +112,7 @@ Notion 配备了完整的键盘和Markdown快捷键，因此您无需触摸鼠�
 - 在任何文本块的开头或结尾键入 `/color` 以更改其颜色或突出显示颜色。 (要删除颜色或突出显示，只需键入 `/default`.) 示例： `/blue`, `/blue background`
 
 <details>
-<summary>数字组合快捷键`cmd/ctrl` + `option/shift` + `[num]` (我用的比较少)</summary>
+<summary>数字组合快捷键<code>cmd/ctrl</code> + <code>option/shift</code> + <code>[num]</code> (我用的比较少)</summary>
 
 以下这些内容创建的快捷方式，在Mac上代表 `cmd` + `option` 组合，Windows 和 Linux 要用 `ctrl` + `shift` 组合：
   - 按下 `cmd/ctrl` + `option/shift` + `0` 创建 文本.
@@ -197,7 +203,9 @@ Notion 中的一切都是一个`块` — 从一行文字（或段落）到一个
 
 - **在其他地方创建一个新页面 - **键入`[[`和您要创建的页面的名称。使用光标或箭头键在出现的下拉列表中选择 `↗ Add new page in...`，然后选择要添加该页面的页面或数据库。
 
-> **🎒** **提示**：当您使用 `[[` 时，下拉菜单将首先显示**页面链接**选项。当您使用 `+` 时，下拉菜单将首先显示**页面创建**选项。
+::: tip 提示
+**提示**：当您使用 `[[` 时，下拉菜单将首先显示**页面链接**选项。当您使用 `+` 时，下拉菜单将首先显示**页面创建**选项。
+:::
 
 - **创建子页面 -**键入`+`和要嵌套在当前页面中的子页面的名称。使用光标或箭头键在出现的下拉菜单中选择+ 添加新子页面。
 
