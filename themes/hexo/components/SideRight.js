@@ -13,6 +13,7 @@ import LatestPostsGroup from './LatestPostsGroup'
 import TagGroups from './TagGroups'
 
 const HexoRecentComments = dynamic(() => import('./HexoRecentComments'))
+const WidgetPersonal = dynamic(() => import('./WidgetPersonal'), { ssr: false })
 const FaceBookPage = dynamic(
   () => {
     let facebook = <></>
@@ -65,6 +66,8 @@ export default function SideRight(props) {
         )}
 
         <InfoCard {...props} />
+
+        <WidgetPersonal />
         {siteConfig('HEXO_WIDGET_ANALYTICS', null, CONFIG) && (
           <AnalyticsCard {...props} />
         )}
