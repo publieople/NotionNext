@@ -16,6 +16,8 @@ let wrapperTop = 0
 const Hero = props => {
   const { siteInfo } = props
   const { locale } = useGlobal()
+  // 优先用 HOME_COVER_URL（随机图接口），回退到 Notion 封面
+  const homeCover = siteConfig('HOME_COVER_URL') || siteInfo?.pageCover
   const scrollToWrapper = () => {
     const rem = parseFloat(getComputedStyle(document.documentElement).fontSize)
     window.scrollTo({ top: wrapperTop - 2 * rem, behavior: 'smooth' })
@@ -101,7 +103,7 @@ const Hero = props => {
         priority
         id='header-cover'
         alt={siteInfo?.title}
-        src={siteInfo?.pageCover}
+        src={homeCover}
         width={1920}
         height={1080}
         className={`header-cover w-full h-screen object-cover object-center ${siteConfig('HEXO_HOME_NAV_BACKGROUND_IMG_FIXED', null, CONFIG) ? 'fixed' : ''}`}
