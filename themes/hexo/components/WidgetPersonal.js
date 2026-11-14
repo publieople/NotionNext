@@ -40,7 +40,10 @@ export default function WidgetPersonal() {
 
   if (!bili && !gh) return <></>
 
-  // 把连续日期排成 7 行（周日→周六）的列
+  // 把连续日期排成 7 行（周日→周六）的列，只取最近 26 周
+  const WEEKS = 26
+  const CELL = 7
+  const GAP = 1
   let cells = []
   if (gh) {
     const days = gh.contributions
@@ -48,6 +51,7 @@ export default function WidgetPersonal() {
     for (let i = 0; i < pad; i++) cells.push(null)
     days.forEach(d => cells.push(d))
     while (cells.length % 7 !== 0) cells.push(null)
+    cells = cells.slice(-WEEKS * 7)
   }
 
   return (
@@ -112,16 +116,17 @@ export default function WidgetPersonal() {
               className='grid'
               style={{
                 gridAutoFlow: 'column',
-                gridTemplateRows: 'repeat(7, auto)',
-                gridAutoColumns: 'minmax(0, 1fr)',
-                gap: 2
+                gridTemplateRows: `repeat(7, ${CELL}px)`,
+                gridTemplateColumns: `repeat(${WEEKS}, ${CELL}px)`,
+                gap: GAP
               }}>
               {cells.map((c, i) => (
                 <div
                   key={i}
                   title={c ? c.date + '：' + c.count + ' 次' : ''}
                   style={{
-                    aspectRatio: '1 / 1',
+                    width: CELL,
+                    height: CELL,
                     borderRadius: 1.5,
                     background: c ? LEVELS[Math.min(c.level || 0, 4)] : 'transparent'
                   }}
@@ -129,8 +134,9 @@ export default function WidgetPersonal() {
               ))}
             </div>
           </div>
-          <div className='mt-2 text-[11px] opacity-40'>
-            @{gh.user}
+          <div className='mt-2 flex items-center justify-between text-[11px] opacity-40'>
+            <span>@{gh.user}</span>
+            <span>近 {WEEKS} 周</span>
           </div>
         </Card>
       )}
