@@ -10,7 +10,7 @@
   var css = ''
   css += '.eg-p{position:fixed;pointer-events:none;z-index:9997;line-height:1;animation:eg-fly .72s cubic-bezier(.2,.7,.3,1) forwards;will-change:transform,opacity}'
   css += '@keyframes eg-fly{to{transform:translate(var(--dx),var(--dy)) scale(.25) rotate(90deg);opacity:0}}'
-  css += '.eg-badge{position:fixed;left:14px;bottom:14px;z-index:9999;padding:4px 10px;border-radius:999px;font-size:12px;line-height:1.6;color:#9ca3af;background:rgba(17,24,39,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);opacity:.55;transition:opacity .25s;user-select:none;font-variant-numeric:tabular-nums}'
+  css += '.eg-badge{position:fixed;left:12px;bottom:12px;z-index:60;padding:3px 9px;border-radius:999px;font-size:11px;line-height:1.7;color:#9ca3af;background:rgba(17,24,39,.42);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.07);opacity:.4;transition:opacity .25s;user-select:none;font-variant-numeric:tabular-nums;pointer-events:auto}'
   css += '.eg-badge:hover{opacity:1}'
   css += '.eg-badge b{color:#a5b4fc;font-weight:600}'
   css += '.eg-fx{position:fixed;inset:0;pointer-events:none;z-index:9996}'

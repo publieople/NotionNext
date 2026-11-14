@@ -71,7 +71,7 @@ export default function WidgetPersonal() {
                 {bili.name}
               </a>
               <div className='text-xs opacity-60 truncate'>
-                B 站 · 粉丝 {short(bili.follower)}
+                B 站 UP 主
               </div>
             </div>
           </div>
@@ -107,21 +107,22 @@ export default function WidgetPersonal() {
             </a>
             <span className='text-xs opacity-50'>近一年 {gh.total} 次提交</span>
           </div>
-          <div className='mt-3 overflow-hidden'>
+          <div className='mt-3'>
             <div
-              className='grid gap-[3px]'
+              className='grid'
               style={{
                 gridAutoFlow: 'column',
-                gridTemplateRows: 'repeat(7, 10px)'
+                gridTemplateRows: 'repeat(7, auto)',
+                gridAutoColumns: 'minmax(0, 1fr)',
+                gap: 2
               }}>
               {cells.map((c, i) => (
                 <div
                   key={i}
                   title={c ? c.date + '：' + c.count + ' 次' : ''}
                   style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: 2,
+                    aspectRatio: '1 / 1',
+                    borderRadius: 1.5,
                     background: c ? LEVELS[Math.min(c.level || 0, 4)] : 'transparent'
                   }}
                 />
