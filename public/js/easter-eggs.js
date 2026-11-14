@@ -12,6 +12,7 @@
   css += '@keyframes eg-fly{to{transform:translate(var(--dx),var(--dy)) scale(.25) rotate(90deg);opacity:0}}'
   css += '.eg-badge{position:fixed;left:12px;bottom:12px;z-index:60;padding:3px 9px;border-radius:999px;font-size:11px;line-height:1.7;color:#9ca3af;background:rgba(17,24,39,.42);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.07);opacity:.4;transition:opacity .25s;user-select:none;font-variant-numeric:tabular-nums;pointer-events:auto}'
   css += '.eg-badge:hover{opacity:1}'
+  css += '@media (max-width:640px){.eg-badge{display:none}}'
   css += '.eg-badge b{color:#a5b4fc;font-weight:600}'
   css += '.eg-fx{position:fixed;inset:0;pointer-events:none;z-index:9996}'
   css += '.eg-glow{position:fixed;left:0;top:0;width:340px;height:340px;margin:-170px 0 0 -170px;border-radius:50%;pointer-events:none;z-index:1;opacity:.5;background:radial-gradient(circle,rgba(129,140,248,.28),rgba(129,140,248,.06) 45%,transparent 70%);transition:opacity .3s;will-change:transform}'
@@ -89,6 +90,7 @@
     var d = now.getDate()
     if (m === 12 || (m === 1 && d <= 15)) return 'snow'
     if ((m === 3 && d >= 15) || (m === 4 && d <= 20)) return 'sakura'
+    if ((m === 9 && d >= 20) || m === 10 || (m === 11 && d <= 15)) return 'leaf'
     return null
   }
   var kind = reduce ? null : season()
@@ -104,15 +106,17 @@
     }
     resize()
     window.addEventListener('resize', resize)
-    var N = kind === 'snow' ? 70 : 45
+    var N = kind === 'snow' ? 70 : kind === 'leaf' ? 34 : 45
+    var leafCols = ['rgba(251,146,60,', 'rgba(244,114,182,', 'rgba(250,204,21,', 'rgba(248,113,113,']
     for (var i = 0; i < N; i++) {
       flakes.push({
         x: Math.random() * W,
         y: Math.random() * H,
-        r: kind === 'snow' ? 1 + Math.random() * 2.4 : 3 + Math.random() * 4,
-        vy: kind === 'snow' ? 0.35 + Math.random() * 0.7 : 0.5 + Math.random() * 0.6,
+        r: kind === 'snow' ? 1 + Math.random() * 2.4 : kind === 'leaf' ? 3.5 + Math.random() * 3 : 3 + Math.random() * 4,
+        vy: kind === 'snow' ? 0.35 + Math.random() * 0.7 : kind === 'leaf' ? 0.8 + Math.random() * 0.7 : 0.5 + Math.random() * 0.6,
         vx: -0.25 + Math.random() * 0.5,
-        a: 0.35 + Math.random() * 0.5,
+        a: 0.3 + Math.random() * 0.45,
+        c: leafCols[i % leafCols.length],
         t: Math.random() * Math.PI * 2
       })
     }
@@ -131,6 +135,15 @@
           ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2)
           ctx.fillStyle = 'rgba(255,255,255,' + f.a + ')'
           ctx.fill()
+        } else if (kind === 'leaf') {
+          ctx.save()
+          ctx.translate(f.x, f.y)
+          ctx.rotate(f.t * 1.7)
+          ctx.beginPath()
+          ctx.ellipse(0, 0, f.r, f.r * 0.42, 0, 0, Math.PI * 2)
+          ctx.fillStyle = f.c + f.a + ')'
+          ctx.fill()
+          ctx.restore()
         } else {
           ctx.save()
           ctx.translate(f.x, f.y)
